@@ -20,7 +20,7 @@ dependency_links = [x.strip().replace('git+', '') for x in all_reqs if x.startsw
 setup(
     name='maybe',
     version=__version__,
-    description="""Provides a Maybe class which can be used to avoid common 'var if var is not None else handle_none(var)' structures.""",
+    description="""Provides a Maybe class which can be used instead of common 'var if var is not None else handle_none(var)' structures.""",
     long_description=long_description,
     url='https://github.com/matthewgdv/maybe',
     download_url='https://github.com/matthewgdv/maybe/tarball/' + __version__,
