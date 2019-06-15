@@ -57,7 +57,7 @@ You can contribute in many ways:
 Report Bugs
 --------------------
 
-Report bugs at https://github.com/mettpawwz/maybe/issues
+Report bugs at https://github.com/matthewgdv/maybe/issues
 
 If you are reporting a bug, please include:
 
@@ -86,7 +86,7 @@ official docs, in docstrings, or even on the web in blog posts, articles, and su
 Submit Feedback
 --------------------
 
-The best way to send feedback is to file an issue at https://github.com/mettpawwz/maybe/issues.
+The best way to send feedback is to file an issue at https://github.com/matthewgdv/maybe/issues.
 
 If you are proposing a new feature:
 
