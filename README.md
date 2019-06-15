@@ -46,6 +46,9 @@ the alternative value. This is because None is a legitimate output value, so lon
 
     Maybe({1: "1"}).get(2).else_("other")           # None
 
+The Maybe class will show the repr of the object it currently contains in its own repr (if it would return the alternative value from Maybe.else_() it will show it as MissingValue).
+Additionally, the Maybe class will be truthy whenever it would return what it is currently holding, and will be falsy when it would return the alternative.
+
 Contributing
 ====================
 
