@@ -1,15 +1,10 @@
-maybe
-====================
-
-version number: 0.0.1
-author: Matt GdV
-
 Overview
 ====================
 
 Provides a Maybe class which can be used to avoid common 'var if var is not None else handle_none(var)' structures.
+Maybe allows item access, attribute access, and method calls to be chained off it. It can be combined with most operators.
 
-Installation / Usage
+Installation
 ====================
 
 To install use pip:
@@ -22,6 +17,34 @@ Or clone the repo:
     $ git clone https://github.com/matthewgdv/maybe.git
     $ python setup.py install
 
+
+Usage
+====================
+
+The simplest use-case is to Wrap the value in the Maybe class and call Maybe.else_() with an alternative value. If the initial value
+was None, the alternative value will be returned. Otherwise the original value will be returned.
+
+    Maybe(None).else_("other")                      # "other"
+    Maybe("hi").else_("other")                      # "hi"
+
+More complex uses involve chaining item/attribute access and method calls off the initial value.
+If at any point an IndexError (item access), AttributeError (attribute access), or TypeError (method call) is raised, the alternative
+value will be returned. Other exception classes are not caught by Maybe (intentionally) and will have be to handled normally.
+
+    Maybe("hi").monkeyweasel[3].else_("other")      # "other"
+    Maybe({1: "1"})[1].isnumeric().else_("other")   # True
+
+Most operators can be used with Maybe.
+
+    (Maybe(8)/2).else_("other")                     # 4.0
+    (Maybe("hi").upper() + "!").else_("other")      # "HI!"
+    (Maybe(None) // 3).else_("other")               # "other"
+    (Maybe(11) % 4).else_("other")                  # 3
+
+If None would be retuned as a result of operations performed on the Maybe object, then None will be returned from Maybe.else_(), not
+the alternative value. This is because None is a legitimate output value, so long as it was not the original input value.
+
+    Maybe({1: "1"}).get(2).else_("other")           # None
 
 Contributing
 ====================
