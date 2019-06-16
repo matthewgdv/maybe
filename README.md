@@ -9,7 +9,7 @@ Installation
 
 To install use pip:
 
-    $ pip install maybe
+    $ pip install maybe-else
 
 
 Or clone the repo:
