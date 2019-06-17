@@ -36,7 +36,7 @@ Other exception classes are not caught by Maybe (intentionally) and will have be
 
 Most operators can be used with Maybe. Actions involving operators will ignore TypeErrors, but other types of exceptions will have to be handled outside the Maybe construct.
 
-    (Maybe(8) / 2).else_("other")                     # 4.0
+    (Maybe(8) / 2).else_("other")                   # 4.0
     (Maybe("hi").upper() + "!").else_("other")      # "HI!"
     (Maybe(None) // 3).else_("other")               # "other"
     (Maybe(11) % 4).else_("other")                  # 3
