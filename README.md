@@ -21,33 +21,32 @@ Or clone the repo:
 Usage
 ====================
 
-The simplest use-case is to Wrap the value in the Maybe class and call Maybe.else_() with an alternative value. If the initial value
-was None, the alternative value will be returned. Otherwise the original value will be returned.
+The simplest use-case is to wrap the value in the Maybe class and call Maybe.else_() with an alternative value. If the initial value was None,
+the alternative value will be returned. Otherwise the original value will be returned.
 
     Maybe(None).else_("other")                      # "other"
     Maybe("hi").else_("other")                      # "hi"
 
 More complex uses involve chaining item/attribute access and method calls off the initial value.
-If at any point an IndexError (item access), AttributeError (attribute access), or TypeError (method call) is raised, the alternative
-value will be returned. Other exception classes are not caught by Maybe (intentionally) and will have be to handled normally.
+If at any point an IndexError (item access), AttributeError (attribute access), or TypeError (method call) is raised, the alternative value will be returned upon calling Maybe.else_().
+Other exception classes are not caught by Maybe (intentionally) and will have be to handled normally.
 
     Maybe("hi").monkeyweasel[3].else_("other")      # "other"
     Maybe({1: "1"})[1].isnumeric().else_("other")   # True
 
-Most operators can be used with Maybe.
+Most operators can be used with Maybe. Actions involving operators will ignore TypeErrors, but other types of exceptions will have to be handled outside the Maybe construct.
 
-    (Maybe(8)/2).else_("other")                     # 4.0
+    (Maybe(8) / 2).else_("other")                     # 4.0
     (Maybe("hi").upper() + "!").else_("other")      # "HI!"
     (Maybe(None) // 3).else_("other")               # "other"
     (Maybe(11) % 4).else_("other")                  # 3
 
-If None would be retuned as a result of operations performed on the Maybe object, then None will be returned from Maybe.else_(), not
-the alternative value. This is because None is a legitimate output value, so long as it was not the original input value.
+If None would be retuned as a result of operations performed on the Maybe object, then None will be returned from Maybe.else_(), rather than the alternative value.
+This is because None is a legitimate output value, so long as it was not the original input value.
 
     Maybe({1: "1"}).get(2).else_("other")           # None
 
-The Maybe class will show the repr of the object it currently contains in its own repr (if it would return the alternative value from Maybe.else_() it will show it as MissingValue).
-Additionally, the Maybe class will be truthy whenever it would return what it is currently holding, and will be falsy when it would return the alternative.
+The Maybe class will be truthy whenever it would return what it is currently holding on calling Maybe.else_(), and will be falsy when it would return the alternative.
 
 Contributing
 ====================
