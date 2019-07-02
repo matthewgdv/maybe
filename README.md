@@ -41,7 +41,7 @@ Most operators can be used with Maybe. Actions involving operators will ignore T
     (Maybe(None) // 3).else_("other")               # "other"
     (Maybe(11) % 4).else_("other")                  # 3
 
-If None would be retuned as a result of operations performed on the Maybe object, then None will be returned from Maybe.else_(), rather than the alternative value.
+If None would be returned as a result of operations performed on the Maybe object, then None will be returned from Maybe.else_(), rather than the alternative value.
 This is because None is a legitimate output value, so long as it was not the original input value.
 
     Maybe({1: "1"}).get(2).else_("other")           # None
@@ -101,19 +101,25 @@ Get Started!
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1.  The pull request should include tests.
+1.  If the pull request adds functionality, it should include tests and the docs
+    should be updated. Write docstrings for any functions that are part of the external API,
+    and add the feature to the list in README.md.
 
-2.  If the pull request adds functionality, the docs should be updated. Put
-    your new functionality into a function with a docstring, and add the
-    feature to the list in README.md.
+2.  If the pull request fixes a bug, tests should be added proving that the bug has been fixed.
+    However, no update to the docs is necessary for bugfixes.
 
-3.  The pull request should work for Python 3.7. Older versions are not supported.
+3.  The pull request should work for the newest version of Python (currently 3.7). Older
+    versions may incidentally work, but are not officially supported.
 
-4.  PEP8 guidelines should be followed where possible, but deviations from it where
-    it makes sense and improves legibility are encouraged. Do not be dogmatic.
+4.  Inline type hints should be used, with an emphasis on ensuring that introspection and
+    autocompletion tools such as Jedi are able to understand the code wherever possible.
 
-5.  This repository intentionally disallows the PEP8 79-character limit. Therefore,
+5.  PEP8 guidelines should be followed where possible, but deviations from it where
+    it makes sense and improves legibility are encouraged. The following PEP8 error
+    codes can be safely ignored: E121, E123, E126, E226, E24, E704, W503
+
+6.  This repository intentionally disallows the PEP8 79-character limit. Therefore,
     any contributions adhering to this convention will be rejected. As a rule of
     thumb you should endeavor to stay under 200 characters except where going over
     preserves alignment, or where the line is mostly non-algorythmic code, such as
-    an extremely long descriptive string or function call.
+    extremely long strings or function call.
