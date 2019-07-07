@@ -1,8 +1,14 @@
 Overview
 ====================
 
-Provides a Maybe class which can be used to avoid common 'var if var is not None else handle_none(var)' structures.
-Maybe allows item access, attribute access, and method calls to be chained off it. It can be combined with most operators.
+Provides a Maybe class which serves as a pseudo-implementation of null-aware
+operators in python:
+
+* can be used to avoid common 'var if var is not None else handle_none(var)' structures
+* Null-aware item access
+* Null-aware attribute access
+* Null-aware chained method calls
+* Can be combined with most operators
 
 Installation
 ====================
@@ -103,7 +109,7 @@ Before you submit a pull request, check that it meets these guidelines:
 
 1.  If the pull request adds functionality, it should include tests and the docs
     should be updated. Write docstrings for any functions that are part of the external API,
-    and add the feature to the list in README.md.
+    and add the feature to the README.md.
 
 2.  If the pull request fixes a bug, tests should be added proving that the bug has been fixed.
     However, no update to the docs is necessary for bugfixes.
@@ -122,4 +128,4 @@ Before you submit a pull request, check that it meets these guidelines:
     any contributions adhering to this convention will be rejected. As a rule of
     thumb you should endeavor to stay under 200 characters except where going over
     preserves alignment, or where the line is mostly non-algorythmic code, such as
-    extremely long strings or function call.
+    extremely long strings or function calls.
