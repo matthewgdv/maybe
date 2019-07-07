@@ -1,10 +1,10 @@
 Overview
 ====================
 
-Provides a Maybe class which serves as a pseudo-implementation of null-aware
+Provides a `Maybe` class which serves as a pseudo-implementation of null-aware
 operators in python:
 
-* can be used to avoid common 'var if var is not None else handle_none(var)' structures
+* can be used to avoid common `var if var is not None else handle_none(var)` structures
 * Null-aware item access
 * Null-aware attribute access
 * Null-aware chained method calls
