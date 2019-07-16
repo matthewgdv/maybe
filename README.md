@@ -33,7 +33,7 @@ the alternative value will be returned. Otherwise the original value will be ret
     Maybe("hi").else_("other")                      # "hi"
 
 More complex uses involve chaining item/attribute access and method calls off the initial value.
-If at any point an `IndexError` (item access), `AttributeError` (attribute access), or `TypeError` (method call) is raised, the alternative value will be returned upon calling `Maybe.else_().`
+If at any point an `IndexError` (item access), `AttributeError` (attribute access), or `TypeError` (method call) is raised, the alternative value will be returned upon calling `Maybe.else_()`.
 Other exception classes are not caught by `Maybe` (intentionally) and will have be to handled normally.
 
     Maybe("hi").monkeyweasel[3].else_("other")      # "other"
