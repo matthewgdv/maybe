@@ -36,7 +36,7 @@ More complex uses involve chaining item/attribute access and method calls off th
 If at any point an `IndexError` or `KeyError` (item access), `AttributeError` (attribute access), or `TypeError` (method call) is raised, the alternative value will be returned
 upon calling `Maybe.else_()`. Other exception classes are not caught by `Maybe` (intentionally) and will have be to handled normally.
 
-    Maybe("hi").monkeyweasel[3].else_("other")      # "other"
+    Maybe("hi").monkeyweasel[3].else_("other")              # "other"
     Maybe({"one": "1"})["one"].isnumeric().else_("other")   # True
 
 Most operators can be used with `Maybe`. Actions involving operators will ignore `TypeError`, but other types of exceptions will have to be handled outside the `Maybe` construct.
