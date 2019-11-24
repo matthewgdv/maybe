@@ -18,7 +18,7 @@ def _set_value_ignoring_exceptions(exception_types: Union[Type[Exception], Tuple
     def decorator(func: FuncSig) -> FuncSig:
         @functools.wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
-            instance = args[0]
+            instance: Maybe = args[0]
 
             if instance._value_ is not missing:
                 try:
