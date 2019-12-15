@@ -43,11 +43,6 @@ def test_truthiness_complex_invalid():
     assert not Maybe(Example).monkeyweasel
 
 
-def test_valid_item_access():
-    key = list(test_dict)[0]
-    assert Maybe(test_dict)[key].else_(Other) == test_dict[key]
-
-
 def test_invalid_item_access():
     assert Maybe(test_dict)["monkeyweasel"].else_(Other) == Other
 
