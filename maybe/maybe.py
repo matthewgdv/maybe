@@ -14,7 +14,7 @@ class MissingValue:
 missing = MissingValue()
 
 
-def _set_value_ignoring_exceptions(exception_types: Union[Type[Exception], Tuple[Type[Exception]]] = Exception) -> Callable[[FuncSig], FuncSig]:
+def _set_value_ignoring_exceptions(exception_types: Union[Type[Exception], Tuple[Type[Exception], ...]] = Exception) -> Callable[[FuncSig], FuncSig]:
     def decorator(func: FuncSig) -> FuncSig:
         @functools.wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
